@@ -1,0 +1,115 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Note Management System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addUser" type="submit" >Add Note</button>
+          </div>
+        </div>
+      </nav>
+
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Note ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Note</th>
+            <th scope="col">Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let n of noteList">
+            <td>{{n._id}}</td>
+            <td>{{n.title}}</td>
+            <td>{{n.note}}</td>
+            <td>{{n.date}}</td>
+
+            <td>
+              <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"  data-bs-target="#editNote" (click)="editNote(n)">Edit</button>
+                <button type="button" class="btn btn-outline-danger" (click)="deleteNote(n)">Delete</button>
+              
+
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+
+  
+  <!-- Add User Model-->
+  <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new Note</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <form [formGroup]="noteDetail">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Title</label>
+                  <input type="text" formControlName="title" class="form-control" id="title" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Note</label>
+                    <input type="text" formControlName="note" class="form-control" id="note" aria-describedby="emailHelp">
+                  </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="addNote()" data-bs-dismiss="modal">Add note</button>
+                  </div>
+
+
+                </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Edit note Modal -->
+<div class="modal fade" id="editNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Note</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="noteDetail">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input type="text" formControlName="title" class="form-control" id="title" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Note</label>
+              <input type="text" formControlName="note" class="form-control" id="note" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Date</label>
+              <input type="text" formControlName="date" class="form-control" id="date" aria-describedby="emailHelp">
+            </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-outline-success"  (click)="updateNote()" data-bs-dismiss="modal">Update</button>
+            </div>
+
+
+          </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
