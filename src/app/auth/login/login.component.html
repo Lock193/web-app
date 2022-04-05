@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+          <img src="../../../assets/ukraine.jpeg" class="center">
+        </div>
+        <div class="col-md-4 mt-3">
+            <h3 class="text-success text-center">Welcome to DB Manager!</h3>
+            <div>
+              <form action="" class="mt-4">
+                <h5 class="text-primary mb-3">Login</h5>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="username" name="username" [(ngModel)]="username">
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="password" name="password" [(ngModel)]="password">
+                  <label for="floatingPassword">Password</label>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn btn-outline-success me-md-2" type="button" (click)="login()">Login</button>
+                  
+                </div>
+              </form>
+                </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+</div>
