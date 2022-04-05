@@ -1,3 +1,5 @@
 export class Login {
-    user_id: string = '';
+    username: string = '';
+    password: string = '';
+    token: string = '';
 }

@@ -7,8 +7,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             
-            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addUser" type="submit" >Add Note</button>
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addNote" type="submit" >Add Note</button>
+            
           </div>
+          <button class="btn btn-outline-danger ml-auto" (click)="logout()">Logout</button>
         </div>
       </nav>
 
@@ -43,8 +45,8 @@
 
 
   
-  <!-- Add User Model-->
-  <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Add Note Modal-->
+  <div class="modal fade" id="addNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

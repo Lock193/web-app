@@ -28,7 +28,7 @@ export class NoteService {
     this.updateNoteURL = 'http://192.168.86.249:8081/update';
     this.deleteNoteURL = 'http://192.168.86.249:8081/delete';
     this.userLogin = new Login();
-    this.userLogin.user_id = '623cad1351a855dc0a2eee2e';
+    this.userLogin.token = localStorage.getItem("token");
 
   }
 
@@ -36,14 +36,14 @@ export class NoteService {
     httpOptions.headers = httpOptions.headers.set('title', note.title);
     httpOptions.headers = httpOptions.headers.set('req-date', note.date);
     httpOptions.headers = httpOptions.headers.set('note', note.note);
-    httpOptions.headers = httpOptions.headers.set('user_id', '623cad1351a855dc0a2eee2e');
+    httpOptions.headers = httpOptions.headers.set('user_id', localStorage.getItem("token"));
     httpOptions.headers = httpOptions.headers.set('folder', '1');
     return this.http.post<Note>(this.addNoteURL,null,httpOptions);
   }
 
   fetchNotes() : Observable<Note[]>{
     console.log(this.userLogin);
-    httpOptions.headers = httpOptions.headers.set('user_id', '623cad1351a855dc0a2eee2e');
+    httpOptions.headers = httpOptions.headers.set('user_id', localStorage.getItem("token"));
     return this.http.post<Note[]>(this.fetchNotesURL,null,httpOptions);
   }
 

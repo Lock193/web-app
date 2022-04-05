@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Login } from 'src/app/model/login';
 import { Note } from 'src/app/model/note';
 import { NoteService } from 'src/app/service/note.service';
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   noteObject : Note = new Note();
   noteList : Note[] = [];
   
-  constructor(private formBuilder : FormBuilder, private noteService : NoteService) { }
+  constructor(private formBuilder : FormBuilder, private noteService : NoteService, private route : Router) { }
 
   ngOnInit(): void {
     this.fetchNotes();
@@ -24,6 +25,11 @@ export class DashboardComponent implements OnInit {
     note : [''],
     date : ['']
     })
+  }
+
+  logout(){
+    localStorage.removeItem("token");
+    this.route.navigate(['/']);
   }
 
   
